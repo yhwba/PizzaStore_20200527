@@ -8,6 +8,7 @@ import android.os.Bundle;
 import java.util.ArrayList;
 import java.util.List;
 
+import kr.co.yhw.pizzastore_20200527.adapters.PizzaStroreListAdapter;
 import kr.co.yhw.pizzastore_20200527.databinding.ActivityMainBinding;
 import kr.co.yhw.pizzastore_20200527.datas.PizzaStore;
 
@@ -16,6 +17,7 @@ public class MainActivity extends BaseActivity {
     ActivityMainBinding binding;
 
     List<PizzaStore> pizzaStoreList = new ArrayList<>();
+    PizzaStroreListAdapter psa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,9 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void setupEvents() {
+
+        psa = new PizzaStroreListAdapter(mContext, R.layout.pizza_store_list_item, pizzaStoreList);
+        binding.pizzaStoreListView.setAdapter(psa);
 
     }
 
