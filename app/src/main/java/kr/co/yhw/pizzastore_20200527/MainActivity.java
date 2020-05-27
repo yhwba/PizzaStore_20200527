@@ -33,9 +33,6 @@ public class MainActivity extends BaseActivity {
     @Override
     public void setupEvents() {
 
-        psa = new PizzaStroreListAdapter(mContext, R.layout.pizza_store_list_item, pizzaStoreList);
-        binding.pizzaStoreListView.setAdapter(psa);
-
         binding.pizzaStoreListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -43,10 +40,16 @@ public class MainActivity extends BaseActivity {
                 PizzaStore clickedPizzaStore = pizzaStoreList.get(position);
 
                 Intent myItent = new Intent(mContext, PizzaStoreMoreInfoActivity.class);
-                myItent.putExtra("",clickedPizzaStore);
+                myItent.putExtra("store",clickedPizzaStore);
                 startActivity(myItent);
             }
         });
+
+
+        psa = new PizzaStroreListAdapter(mContext, R.layout.pizza_store_list_item, pizzaStoreList);
+        binding.pizzaStoreListView.setAdapter(psa);
+
+
 
     }
 
