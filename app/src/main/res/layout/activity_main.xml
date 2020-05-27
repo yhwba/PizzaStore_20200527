@@ -9,7 +9,7 @@
         tools:context=".MainActivity">
 
         <ListView
-            android:id="@+id/pizzaStoreList"
+            android:id="@+id/pizzaStoreListView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
