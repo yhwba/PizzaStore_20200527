@@ -3,7 +3,10 @@ package kr.co.yhw.pizzastore_20200527;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +35,18 @@ public class MainActivity extends BaseActivity {
 
         psa = new PizzaStroreListAdapter(mContext, R.layout.pizza_store_list_item, pizzaStoreList);
         binding.pizzaStoreListView.setAdapter(psa);
+
+        binding.pizzaStoreListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                PizzaStore clickedPizzaStore = pizzaStoreList.get(position);
+
+                Intent myItent = new Intent(mContext, PizzaStoreMoreInfoActivity.class);
+                myItent.putExtra("",clickedPizzaStore);
+                startActivity(myItent);
+            }
+        });
 
     }
 
